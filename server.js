@@ -143,7 +143,7 @@ db.connect((err) => {
                 bcrypt.compare(password, pass, (err, isMatch) => {
                     if (err) throw err;
                     if (isMatch) {
-                        const token = jwt.sign({id: id, user: user.user}, process.env.SECRET_KEY, {expiresIn: "5m"});
+                        const token = jwt.sign({id: id, user: user.user}, process.env.SECRET_KEY, {expiresIn: "10s"});
                         res.cookie("token", token, {
                             httpOnly: true
                         })
